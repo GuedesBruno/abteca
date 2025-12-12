@@ -29,26 +29,26 @@ const news = [
 
 export function LatestNews() {
     return (
-        <section className="py-20 bg-background">
+        <section className="py-20 bg-slate-100">
             <div className="container mx-auto px-4 md:px-6">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary mb-12 text-center">Últimas Notícias</h2>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-12 text-center">Últimas Notícias</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {news.map((item) => (
-                        <Card key={item.id} className="border bg-card shadow-sm hover:shadow-md transition-shadow">
+                        <Card key={item.id} className="border bg-white shadow-sm hover:shadow-md transition-shadow">
                             <CardHeader>
-                                <div className="flex items-center text-sm text-muted-foreground mb-2">
+                                <div className="flex items-center text-sm text-slate-500 mb-2">
                                     <Calendar className="mr-2 h-4 w-4" />
                                     {item.date}
                                     <span className="mx-2">•</span>
                                     <span className="text-primary font-medium">{item.category}</span>
                                 </div>
-                                <CardTitle className="line-clamp-2 hover:text-primary transition-colors cursor-pointer">
+                                <CardTitle className="line-clamp-2 hover:text-primary transition-colors cursor-pointer text-slate-900">
                                     <Link href={`/noticias/${item.id}`}>{item.title}</Link>
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <p className="text-muted-foreground line-clamp-3">
+                                <p className="text-slate-600 line-clamp-3">
                                     {item.excerpt}
                                 </p>
                             </CardContent>
@@ -64,7 +64,7 @@ export function LatestNews() {
                 </div>
 
                 <div className="mt-12 text-center">
-                    <Button variant="secondary" size="lg" asChild>
+                    <Button variant="default" size="lg" asChild>
                         <Link href="/noticias">Ver todas as notícias</Link>
                     </Button>
                 </div>

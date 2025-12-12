@@ -3,7 +3,7 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react
 
 export function Footer() {
     return (
-        <footer className="w-full bg-slate-900 text-slate-200 py-12">
+        <footer className="w-full bg-white text-slate-900 py-12">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Logo & About */}
@@ -11,14 +11,14 @@ export function Footer() {
                         <Link href="/" className="flex items-center space-x-2">
                             <img src="/logo.png" alt="ABTECA Logo" className="h-16 w-auto" />
                         </Link>
-                        <p className="text-sm text-slate-400 leading-relaxed">
+                        <p className="text-sm text-slate-600 leading-relaxed">
                             Associação Brasileira de Tecnologia Assistiva. Promovendo a inclusão social através da inovação, pesquisa e desenvolvimento de soluções acessíveis.
                         </p>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="font-bold text-white text-lg mb-4">Institucional</h3>
+                        <h3 className="font-bold text-slate-900 text-lg mb-4">Institucional</h3>
                         <ul className="space-y-2 text-sm">
                             <li>
                                 <Link href="/quem-somos" className="hover:text-secondary transition-colors">
@@ -45,7 +45,7 @@ export function Footer() {
 
                     {/* Projects */}
                     <div>
-                        <h3 className="font-bold text-white text-lg mb-4">Atuação</h3>
+                        <h3 className="font-bold text-slate-900 text-lg mb-4">Atuação</h3>
                         <ul className="space-y-2 text-sm">
                             <li>
                                 <Link href="/o-que-fazemos" className="hover:text-secondary transition-colors">
@@ -67,7 +67,7 @@ export function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h3 className="font-bold text-white text-lg mb-4">Contato</h3>
+                        <h3 className="font-bold text-slate-900 text-lg mb-4">Contato</h3>
                         <ul className="space-y-3 text-sm">
                             <li className="flex items-start">
                                 <MapPin className="h-5 w-5 mr-2 text-secondary shrink-0" />
@@ -75,13 +75,13 @@ export function Footer() {
                             </li>
                             <li className="flex items-center">
                                 <Mail className="h-5 w-5 mr-2 text-secondary shrink-0" />
-                                <a href="mailto:abteca1@gmail.com" className="hover:text-white">
+                                <a href="mailto:abteca1@gmail.com" className="hover:text-primary">
                                     abteca1@gmail.com
                                 </a>
                             </li>
                             <li className="flex items-center">
                                 <Phone className="h-5 w-5 mr-2 text-secondary shrink-0" />
-                                <a href="tel:+5511932137106" className="hover:text-white">
+                                <a href="tel:+5511932137106" className="hover:text-primary">
                                     (11) 93213-7106
                                 </a>
                             </li>
@@ -103,7 +103,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-slate-800 mt-12 pt-8 text-center text-sm text-slate-500">
+                <div className="border-t border-slate-200 mt-12 pt-8 text-center text-sm text-slate-600">
                     <p>© {new Date().getFullYear()} ABTECA. Todos os direitos reservados.</p>
                 </div>
             </div>

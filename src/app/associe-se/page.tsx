@@ -33,9 +33,7 @@ const formSchema = z.object({
     email: z.string().email({
         message: "Insira um e-mail válido.",
     }),
-    type: z.string({
-        required_error: "Selecione o tipo de associado.",
-    }).min(1, "Selecione o tipo de associado."),
+    type: z.string().min(1, "Selecione o tipo de associado."),
     message: z.string().optional(),
 });
 

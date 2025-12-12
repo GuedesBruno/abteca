@@ -58,16 +58,16 @@ export function ProjectsCarousel() {
     }, [isInView, controls]);
 
     return (
-        <section className="py-20 bg-slate-50 overflow-hidden" ref={containerRef}>
+        <section className="py-20 bg-primary overflow-hidden" ref={containerRef}>
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div className="space-y-4 max-w-2xl">
-                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">Nossos Projetos</h2>
-                        <p className="text-muted-foreground text-lg">
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">Nossos Projetos</h2>
+                        <p className="text-blue-100 text-lg">
                             Conheça as iniciativas que estão transformando o cenário da acessibilidade no Brasil.
                         </p>
                     </div>
-                    <Button variant="outline" asChild>
+                    <Button variant="secondary" asChild>
                         <Link href="/projetos" className="group">
                             Ver todos os projetos
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -97,17 +97,17 @@ export function ProjectsCarousel() {
                                 visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
                             }}
                         >
-                            <Card className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+                            <Card className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300 bg-white border-none">
                                 <CardHeader className="pb-4">
                                     <div className="flex justify-between items-start">
                                         <Badge variant="secondary" className="mb-2 bg-blue-100 text-primary hover:bg-blue-200">
                                             {project.category}
                                         </Badge>
                                     </div>
-                                    <CardTitle className="text-xl">{project.title}</CardTitle>
+                                    <CardTitle className="text-xl text-slate-900">{project.title}</CardTitle>
                                 </CardHeader>
                                 <CardContent className="flex-grow">
-                                    <p className="text-muted-foreground leading-relaxed">
+                                    <p className="text-slate-600 leading-relaxed">
                                         {project.description}
                                     </p>
                                 </CardContent>

@@ -24,19 +24,19 @@ const highlights = [
 
 export function Highlights() {
     return (
-        <section className="py-20 bg-background">
+        <section className="py-20 bg-slate-100">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid md:grid-cols-3 gap-8">
                     {highlights.map((item) => (
-                        <Card key={item.title} className="border-none shadow-xl bg-card hover:bg-slate-50 transition-colors duration-300">
+                        <Card key={item.title} className="border-none shadow-xl bg-white hover:bg-slate-50 transition-colors duration-300">
                             <CardHeader className="space-y-4">
                                 <div className={`w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center ${item.color}`}>
                                     <item.icon className="h-8 w-8" />
                                 </div>
-                                <CardTitle className="text-2xl font-bold">{item.title}</CardTitle>
+                                <CardTitle className="text-2xl font-bold text-slate-900">{item.title}</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <p className="text-muted-foreground text-lg leading-relaxed">
+                                <p className="text-slate-600 text-lg leading-relaxed">
                                     {item.description}
                                 </p>
                             </CardContent>
