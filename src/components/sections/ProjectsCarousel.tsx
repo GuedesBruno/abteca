@@ -1,0 +1,128 @@
+"use client";
+
+import { useRef, useState, useEffect } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+
+const projects = [
+    {
+        id: 1,
+        title: "Programa Nacional de Formação",
+        description: "Capacitação em larga escala para profissionais de saúde e educação no uso de tecnologias assistivas.",
+        category: "Educação",
+        image: "/images/project-1.jpg", // Placeholder
+    },
+    {
+        id: 2,
+        title: "Observatório de Tecnologia Assistiva",
+        description: "Monitoramento e análise de dados sobre o ecossistema de TA no Brasil, gerando inteligência para políticas públicas.",
+        category: "Pesquisa",
+        image: "/images/project-2.jpg",
+    },
+    {
+        id: 3,
+        title: "Apoio a Políticas Públicas",
+        description: "Consultoria técnica para governos na elaboração de leis e diretrizes de acessibilidade.",
+        category: "Advocacy",
+        image: "/images/project-3.jpg",
+    },
+    {
+        id: 4,
+        title: "Incentivo à Inovação",
+        description: "Fomento a startups e grupos de pesquisa que desenvolvem novos dispositivos de inclusão.",
+        category: "Inovação",
+        image: "/images/project-4.jpg",
+    },
+    {
+        id: 5,
+        title: "Comunicação e Difusão",
+        description: "Disseminação de conhecimento técnico e conscientização da sociedade sobre direitos e recursos.",
+        category: "Comunicação",
+        image: "/images/project-5.jpg",
+    },
+];
+
+export function ProjectsCarousel() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+    const controls = useAnimation();
+
+    useEffect(() => {
+        if (isInView) {
+            controls.start("visible");
+        }
+    }, [isInView, controls]);
+
+    return (
+        <section className="py-20 bg-slate-50 overflow-hidden" ref={containerRef}>
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div className="space-y-4 max-w-2xl">
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">Nossos Projetos</h2>
+                        <p className="text-muted-foreground text-lg">
+                            Conheça as iniciativas que estão transformando o cenário da acessibilidade no Brasil.
+                        </p>
+                    </div>
+                    <Button variant="outline" asChild>
+                        <Link href="/projetos" className="group">
+                            Ver todos os projetos
+                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                    </Button>
+                </div>
+
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    initial="hidden"
+                    animate={controls}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.1
+                            }
+                        }
+                    }}
+                >
+                    {projects.slice(0, 3).map((project) => (
+                        <motion.div
+                            key={project.id}
+                            variants={{
+                                hidden: { y: 20, opacity: 0 },
+                                visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+                            }}
+                        >
+                            <Card className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+                                <CardHeader className="pb-4">
+                                    <div className="flex justify-between items-start">
+                                        <Badge variant="secondary" className="mb-2 bg-blue-100 text-primary hover:bg-blue-200">
+                                            {project.category}
+                                        </Badge>
+                                    </div>
+                                    <CardTitle className="text-xl">{project.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent className="flex-grow">
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        {project.description}
+                                    </p>
+                                </CardContent>
+                                <CardFooter>
+                                    <Button variant="link" className="p-0 h-auto text-primary font-semibold group" asChild>
+                                        <Link href={`/projetos/${project.id}`}>
+                                            Saiba mais <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                                        </Link>
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
+        </section>
+    );
+}

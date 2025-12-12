@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    name: Build and Test
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      # Uncomment if you have tests
+      # - name: Test
+      #   run: npm test
+
+      - name: Build
+        run: npm run build
+        env:
+          # Fake vars for build time only (if needed for static generation)
+          DATABASE_URL: "postgresql://none:none@localhost:5432/none"
+          NEXTAUTH_SECRET: "build_secret_placeholder"
+          NEXTAUTH_URL: "http://localhost:3000"

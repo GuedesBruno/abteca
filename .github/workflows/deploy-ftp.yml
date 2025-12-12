@@ -1,0 +1,45 @@
+name: Deploy to Locaweb FTP
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🏗️ Build Project
+        run: npm run build
+        env:
+          # In static build, these might be needed if pages use them during generation.
+          # Since CI has no DB access, pages depending on DB will fail or be empty unless mocked.
+          # For now, we assume user might handle data via content files or public API in future.
+          DATABASE_URL: "postgresql://none:none@localhost:5432/none" 
+          NEXTAUTH_SECRET: "static_build_secret"
+          NEXTAUTH_URL: "http://localhost:3000"
+
+      - name: 📂 Sync files (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Locaweb usually requires uploading to public_html or similar
+          # server-dir: public_html/
+          local-dir: ./out/
+          dry-run: false
