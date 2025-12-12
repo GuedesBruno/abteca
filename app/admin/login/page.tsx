@@ -15,7 +15,6 @@ export default function LoginPage() {
                 <CardContent>
                     <form
                         action={async (formData) => {
-                            "use server"
                             console.log("Login disabled in static mode")
                         }}
                         className="space-y-4"

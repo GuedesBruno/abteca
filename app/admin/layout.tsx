@@ -23,7 +23,7 @@ export default async function AdminLayout({
                     <a href="/admin/projetos" className="p-2 hover:bg-slate-200 rounded font-medium">Projetos</a>
                     <a href="/admin/associados" className="p-2 hover:bg-slate-200 rounded font-medium">Associados</a>
                     <form action={async () => {
-                        "use server"
+
                         // await signOut() // Need to import signOut from auth
                         // Or use a Client Component for Logout button
                     }}>
