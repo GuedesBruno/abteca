@@ -22,13 +22,9 @@ export default async function AdminLayout({
                     <a href="/admin/noticias" className="p-2 hover:bg-slate-200 rounded font-medium">Notícias</a>
                     <a href="/admin/projetos" className="p-2 hover:bg-slate-200 rounded font-medium">Projetos</a>
                     <a href="/admin/associados" className="p-2 hover:bg-slate-200 rounded font-medium">Associados</a>
-                    <form action={async () => {
-
-                        // await signOut() // Need to import signOut from auth
-                        // Or use a Client Component for Logout button
-                    }}>
-                        <button className="w-full text-left p-2 hover:bg-red-100 text-red-600 rounded mt-8">Sair</button>
-                    </form>
+                    <div className="mt-8">
+                        <button className="w-full text-left p-2 hover:bg-red-100 text-red-600 rounded">Sair</button>
+                    </div>
                 </nav>
             </aside>
             <main className="flex-1 overflow-y-auto p-8">

@@ -14,9 +14,8 @@ export default function LoginPage() {
                 </CardHeader>
                 <CardContent>
                     <form
-                        action={async (formData) => {
-                            console.log("Login disabled in static mode")
-                        }}
+                        onSubmit={undefined} // Disabled for static
+
                         className="space-y-4"
                     >
                         <div className="space-y-2">
