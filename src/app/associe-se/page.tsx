@@ -101,13 +101,32 @@ export default function AssocieSePage() {
     };
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
+        const typeMap: Record<string, string> = {
+            individual: "Pessoa Física - Profissional",
+            student: "Pessoa Física - Estudante",
+            company_small: "Empresa (Pequeno Porte)",
+            company_large: "Empresa (Médio/Grande Porte)",
+            ngo: "ONG / Instituição Sem Fins Lucrativos"
+        };
+
+        const payload = {
+            "Nome": values.name,
+            "E-mail": values.email,
+            "Telefone": values.phone,
+            "Tipo de Documento": values.documentType === 'cpf' ? 'CPF' : 'CNPJ',
+            "Documento": values.document,
+            "Tipo de Associado": typeMap[values.type] || values.type,
+            "Mensagem": values.message || "",
+            "_replyto": values.email // Ensures functional reply button in email clients
+        };
+
         try {
             const response = await fetch("https://formspree.io/f/xpwvkgka", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(values)
+                body: JSON.stringify(payload)
             });
 
             if (response.ok) {
