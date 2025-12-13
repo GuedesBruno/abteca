@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, ArrowRight } from "lucide-react";
+import { CalendarDays, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const news = [
@@ -35,27 +35,27 @@ export function LatestNews() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {news.map((item) => (
-                        <Card key={item.id} className="border bg-white shadow-sm hover:shadow-md transition-shadow">
-                            <CardHeader>
-                                <div className="flex items-center text-sm text-slate-500 mb-2">
-                                    <Calendar className="mr-2 h-4 w-4" />
-                                    {item.date}
-                                    <span className="mx-2">•</span>
-                                    <span className="text-primary font-medium">{item.category}</span>
+                        <Card key={item.id} className="flex flex-col border-0 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                            {/* Decorative gradient header */}
+                            <div className="h-3 bg-gradient-to-r from-primary to-blue-600" />
+
+                            <CardHeader className="space-y-3">
+                                <div className="flex items-center space-x-2 text-sm text-muted-foreground bg-slate-100 w-fit px-3 py-1 rounded-full">
+                                    <CalendarDays className="h-4 w-4" />
+                                    <span>{item.date}</span>
                                 </div>
-                                <CardTitle className="line-clamp-2 hover:text-primary transition-colors cursor-pointer text-slate-900">
+                                <CardTitle className="text-xl font-bold leading-tight group-hover:text-primary transition-colors cursor-pointer">
                                     <Link href={`/noticias/${item.id}`}>{item.title}</Link>
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <p className="text-slate-600 line-clamp-3">
-                                    {item.excerpt}
-                                </p>
+                                <p className="text-muted-foreground line-clamp-3">{item.excerpt}</p>
                             </CardContent>
-                            <CardFooter>
-                                <Button variant="ghost" className="px-0 hover:bg-transparent text-primary group" asChild>
+                            <CardFooter className="mt-auto pt-4">
+                                <Button variant="ghost" asChild className="w-full justify-between group-hover:bg-primary/5">
                                     <Link href={`/noticias/${item.id}`}>
-                                        Ler notícia completa <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                        Ler mais
+                                        <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </Button>
                             </CardFooter>

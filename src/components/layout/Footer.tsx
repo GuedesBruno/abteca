@@ -3,13 +3,13 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react
 
 export function Footer() {
     return (
-        <footer className="w-full bg-white text-slate-900 py-12">
+        <footer className="w-full bg-white text-slate-900 py-12 border-t border-slate-200">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Logo & About */}
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center space-x-2">
-                            <img src="/logo.png" alt="ABTECA Logo" className="h-16 w-auto" />
+                            <img src="/logo-abteca.png" alt="ABTECA Logo" className="h-16 w-auto" />
                         </Link>
                         <p className="text-sm text-slate-600 leading-relaxed">
                             Associação Brasileira de Tecnologia Assistiva. Promovendo a inclusão social através da inovação, pesquisa e desenvolvimento de soluções acessíveis.

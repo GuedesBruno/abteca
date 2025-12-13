@@ -7,9 +7,10 @@ import { Menu, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "@/components/mode-toggle";
+
 
 const navigation = [
+    { name: "Início", href: "/" },
     { name: "Quem Somos", href: "/quem-somos" },
     { name: "O que Fazemos", href: "/o-que-fazemos" },
     { name: "Projetos", href: "/projetos" },
@@ -27,7 +28,7 @@ export function Header() {
             <div className="container mx-auto px-4 md:px-6 h-24 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center space-x-2">
-                    <img src="/logo.png" alt="ABTECA Logo" className="h-20 w-auto" />
+                    <img src="/logo-abteca.png" alt="ABTECA Logo" className="h-20 w-auto" />
                     {/* <span className="font-bold text-xl md:text-2xl text-primary tracking-tight">
                         ABTECA
                     </span> */}
@@ -47,7 +48,7 @@ export function Header() {
                             {item.name}
                         </Link>
                     ))}
-                    <ModeToggle />
+
                     <Button asChild className="hidden lg:flex" size="sm">
                         <Link href="/associe-se">
                             <UserPlus className="mr-2 h-4 w-4" />
@@ -74,7 +75,7 @@ export function Header() {
                                 className="flex items-center"
                                 onClick={() => setIsOpen(false)}
                             >
-                                <img src="/logo.png" alt="ABTECA Logo" className="h-14 w-auto mr-2" />
+                                <img src="/logo-abteca.png" alt="ABTECA Logo" className="h-14 w-auto mr-2" />
                                 {/* <div className="bg-primary w-8 h-8 rounded-md flex items-center justify-center text-white font-bold text-lg mr-2">
                                     A
                                 </div>
@@ -96,9 +97,7 @@ export function Header() {
                                 </Link>
                             ))}
                             <div className="pt-4 flex flex-col gap-4">
-                                <div className="flex justify-start">
-                                    <ModeToggle />
-                                </div>
+
                                 <Button asChild className="w-full justify-start" size="lg" onClick={() => setIsOpen(false)}>
                                     <Link href="/associe-se">
                                         <UserPlus className="mr-2 h-5 w-5" />

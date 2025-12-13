@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { InteractiveBackground } from "@/components/ui/interactive-background";
 
 export function Hero() {
     return (
-        <section className="relative w-full bg-primary overflow-hidden">
+        <section className="relative w-full bg-blue-gradient overflow-hidden">
+            <InteractiveBackground />
             <div className="container mx-auto px-4 md:px-6 py-20 md:py-32 lg:py-40 flex flex-col md:flex-row items-center gap-12">
                 <div className="flex-1 space-y-8 z-10">
                     <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-white bg-white/10 text-white hover:bg-white/20">
@@ -22,7 +25,7 @@ export function Hero() {
                                 Conheça a ABTECA
                             </Link>
                         </Button>
-                        <Button size="lg" variant="outline" className="w-full sm:w-auto text-base h-12 px-8 group border-white text-white hover:bg-white/10 hover:text-white" asChild>
+                        <Button size="lg" className="w-full sm:w-auto text-base h-12 px-8 group bg-blue-900 text-white hover:bg-blue-800 border-hidden" asChild>
                             <Link href="/projetos">
                                 Nossos Projetos
                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -32,9 +35,17 @@ export function Hero() {
                 </div>
 
                 {/* Abstract shape illustration placeholder since we don't have real images yet */}
-                <div className="flex-1 relative w-full aspect-square md:aspect-auto md:h-[500px] flex items-center justify-center bg-white/10 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-sm border border-white/20">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
-                    <div className="text-white/20 text-9xl font-black">ABTECA</div>
+                <div className="flex-1 relative w-full aspect-square md:aspect-auto md:h-[500px] flex items-center justify-center bg-white/70 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md border border-white/20">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
+                    <div className="relative w-72 h-72 md:w-96 md:h-96 opacity-90 hover:scale-105 transition-transform duration-500">
+                        <Image
+                            src="/logo-abteca.png"
+                            alt="Logo ABTECA"
+                            fill
+                            className="object-contain drop-shadow-xl"
+                            priority
+                        />
+                    </div>
                 </div>
             </div>
 

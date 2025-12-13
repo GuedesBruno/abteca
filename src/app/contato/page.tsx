@@ -1,150 +1,92 @@
-"use client";
+"use client"
 
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Mail, MapPin, Phone } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 
-const formSchema = z.object({
-    name: z.string().min(2, { message: "Nome obrigatório" }),
-    email: z.string().email({ message: "E-mail inválido" }),
-    subject: z.string().min(5, { message: "Assunto obrigatório" }),
-    message: z.string().min(10, { message: "Mensagem muito curta" }),
-});
+import { PageHeader } from "@/components/layout/PageHeader"
+
+import { Send } from "lucide-react"
 
 export default function ContatoPage() {
-    const [sent, setSent] = useState(false);
-
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: { name: "", email: "", subject: "", message: "" }
-    });
-
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log("Contact form:", values);
-        setSent(true);
-    }
-
     return (
-        <div className="min-h-screen bg-background pb-20">
-            <section className="bg-slate-100 py-16 text-center">
-                <h1 className="text-4xl font-bold text-primary mb-4">Fale Conosco</h1>
-                <p className="text-muted-foreground max-w-xl mx-auto">
-                    Dúvidas, sugestões ou parcerias? Estamos à disposição para atender você.
-                </p>
-            </section>
-
-            <div className="container mx-auto px-4 md:px-6 mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                    <h2 className="text-2xl font-bold mb-8">Envie sua mensagem</h2>
-                    {sent ? (
-                        <div className="bg-green-50 border border-green-200 text-green-700 p-6 rounded-lg">
-                            Mensagem enviada com sucesso! Responderemos em breve.
-                        </div>
-                    ) : (
-                        <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                                <FormField
-                                    control={form.control}
-                                    name="name"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Nome</FormLabel>
-                                            <FormControl><Input placeholder="Seu nome" {...field} /></FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="email"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>E-mail</FormLabel>
-                                            <FormControl><Input placeholder="seu@email.com" {...field} /></FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="subject"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Assunto</FormLabel>
-                                            <FormControl><Input placeholder="Motivo do contato" {...field} /></FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="message"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Mensagem</FormLabel>
-                                            <FormControl><Textarea className="min-h-[150px]" placeholder="Como podemos ajudar?" {...field} /></FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <Button type="submit" size="lg" className="w-full">Enviar Mensagem</Button>
-                            </form>
-                        </Form>
-                    )}
-                </div>
-
-                <div className="space-y-8">
-                    <h2 className="text-2xl font-bold mb-8">Informações de Contato</h2>
-                    <div className="grid gap-6">
-                        <Card>
-                            <CardContent className="flex items-start p-6">
-                                <MapPin className="h-6 w-6 text-primary mr-4 mt-1" />
-                                <div>
-                                    <h3 className="font-semibold text-lg">Endereço</h3>
-                                    <p className="text-muted-foreground">Av. Paulista, 1000, Conj 101<br />Bela Vista, São Paulo - SP<br />CEP: 01310-100</p>
+        <div className="flex flex-col min-h-screen bg-slate-100">
+            <PageHeader
+                title="Fale Conosco"
+                description="Entre em contato conosco para dúvidas, sugestões ou parcerias."
+            />
+            <div className="container py-12 md:py-24">
+                <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
+                    <div className="space-y-8">
+                        <Card className="border-t-4 border-t-primary shadow-md">
+                            <CardHeader>
+                                <CardTitle className="text-2xl">Nossos Canais</CardTitle>
+                                <CardDescription>Estamos prontos para atender você.</CardDescription>
+                            </CardHeader>
+                            <CardContent className="space-y-6">
+                                <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-slate-50 transition-colors">
+                                    <div className="bg-primary/10 p-3 rounded-full text-primary">
+                                        <MapPin className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold text-lg">Endereço</p>
+                                        <p className="text-muted-foreground">R. das Camélias, 37 - sala 203<br />Mirandópolis, São Paulo - SP, 04048-060</p>
+                                    </div>
                                 </div>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardContent className="flex items-start p-6">
-                                <Mail className="h-6 w-6 text-primary mr-4 mt-1" />
-                                <div>
-                                    <h3 className="font-semibold text-lg">E-mail</h3>
-                                    <p className="text-muted-foreground">contato@abteca.org.br<br />imprensa@abteca.org.br</p>
+                                <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-slate-50 transition-colors">
+                                    <div className="bg-primary/10 p-3 rounded-full text-primary">
+                                        <Phone className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold text-lg">Telefone</p>
+                                        <p className="text-muted-foreground">(11) 93213-7106</p>
+                                    </div>
                                 </div>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardContent className="flex items-start p-6">
-                                <Phone className="h-6 w-6 text-primary mr-4 mt-1" />
-                                <div>
-                                    <h3 className="font-semibold text-lg">Telefone</h3>
-                                    <p className="text-muted-foreground">(11) 99999-9999<br />Seg-Sex, 9h às 18h</p>
+                                <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-slate-50 transition-colors">
+                                    <div className="bg-primary/10 p-3 rounded-full text-primary">
+                                        <Mail className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold text-lg">E-mail</p>
+                                        <p className="text-muted-foreground">abteca1@gmail.com</p>
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
                     </div>
 
-                    {/* Map Placeholder */}
-                    <div className="bg-slate-200 h-64 rounded-xl w-full flex items-center justify-center text-slate-500 font-medium">
-                        [Google Maps Placeholder]
+                    <div className="space-y-8">
+                        <Card className="shadow-lg">
+                            <CardHeader className="bg-primary/5 border-b">
+                                <CardTitle className="flex items-center gap-2">
+                                    <Send className="h-5 w-5 text-primary" />
+                                    Envie uma Mensagem
+                                </CardTitle>
+                                <CardDescription>Preencha o formulário abaixo e retornaremos em breve.</CardDescription>
+                            </CardHeader>
+                            <CardContent className="pt-6">
+                                <form className="space-y-4" action="https://formspree.io/f/xpwvkgka" method="POST">
+                                    <div className="space-y-2">
+                                        <label htmlFor="name" className="text-sm font-medium">Nome</label>
+                                        <Input id="name" name="name" placeholder="Seu nome" className="bg-slate-50" required />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="email" className="text-sm font-medium">E-mail</label>
+                                        <Input id="email" name="email" type="email" placeholder="seu@email.com" className="bg-slate-50" required />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="message" className="text-sm font-medium">Mensagem</label>
+                                        <Textarea id="message" name="message" placeholder="Como podemos ajudar?" className="min-h-[150px] bg-slate-50" required />
+                                    </div>
+                                    <Button className="w-full text-lg h-12" type="submit">Enviar Mensagem</Button>
+                                </form>
+                            </CardContent>
+                        </Card>
                     </div>
                 </div>
             </div>
         </div>
-    );
+    )
 }

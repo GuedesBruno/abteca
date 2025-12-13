@@ -1,95 +1,67 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react"
+import { Metadata } from 'next'
+import Link from "next/link"
 
-export const metadata = {
-    title: "Nossos Projetos - ABTECA",
-    description: "Conheça os projetos e programas desenvolvidos pela ABTECA."
-};
+export const metadata: Metadata = {
+    title: 'Projetos | ABTECA',
+    description: 'Conheça os projetos em andamento da ABTECA.',
+}
 
-const projects = [
-    {
-        id: 1,
-        title: "Programa Nacional de Formação",
-        description: "Capacitação em larga escala para profissionais de saúde e educação no uso de tecnologias assistivas. Oferecemos cursos presenciais e EAD com foco na aplicação prática de recursos de TA.",
-        category: "Educação",
-        status: "Em andamento"
-    },
-    {
-        id: 2,
-        title: "Observatório de Tecnologia Assistiva",
-        description: "Monitoramento e análise de dados sobre o ecossistema de TA no Brasil, gerando inteligência para políticas públicas. Mapeamos fabricantes, pesquisadores e necessidades da população.",
-        category: "Pesquisa",
-        status: "Em andamento"
-    },
-    {
-        id: 3,
-        title: "Apoio a Políticas Públicas",
-        description: "Consultoria técnica para governos na elaboração de leis e diretrizes de acessibilidade. Atuamos na revisão de marcos regulatórios e na defesa dos direitos das pessoas com deficiência.",
-        category: "Advocacy",
-        status: "Contínuo"
-    },
-    {
-        id: 4,
-        title: "Incentivo à Inovação",
-        description: "Fomento a startups e grupos de pesquisa que desenvolvem novos dispositivos de inclusão. Realizamos hackathons e conectamos inovadores a investidores sociais.",
-        category: "Inovação",
-        status: "Edital Aberto"
-    },
-    {
-        id: 5,
-        title: "Comunicação e Difusão",
-        description: "Disseminação de conhecimento técnico e conscientização da sociedade sobre direitos e recursos. Produzimos manuais, podcasts e vídeos acessíveis.",
-        category: "Comunicação",
-        status: "Contínuo"
-    },
-];
+import { PageHeader } from "@/components/layout/PageHeader"
 
-export default function ProjetosPage() {
+export default function Projetos() {
+    const projetos = [
+        {
+            title: "Programa Nacional de Formação",
+            description: "Capacitação em larga escala para profissionais do SUS e da rede pública de ensino.",
+            status: "Em andamento",
+            bg: "bg-blue-50 border-blue-200",
+            iconColor: "text-blue-600",
+            badge: "bg-blue-100 text-blue-700"
+        },
+        {
+            title: "Observatório de TA",
+            description: "Monitoramento e produção de dados sobre o ecossistema de Tecnologia Assistiva no Brasil.",
+            status: "Em andamento",
+            bg: "bg-blue-50 border-blue-200",
+            iconColor: "text-blue-600",
+            badge: "bg-blue-100 text-blue-700"
+        },
+        {
+            title: "Lab de Inovação Aberta",
+            description: "Espaço co-criativo para desenvolvimento de protótipos de baixo custo.",
+            status: "Fase Piloto",
+            bg: "bg-blue-50 border-blue-200",
+            iconColor: "text-blue-600",
+            badge: "bg-blue-100 text-blue-700"
+        }
+    ]
+
     return (
-        <div className="min-h-screen bg-background pb-20">
-            <section className="bg-slate-50 py-16 md:py-24">
-                <div className="container mx-auto px-4 md:px-6">
-                    <Badge className="mb-4" variant="secondary">Impacto Social</Badge>
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6">
-                        Nossos Projetos
-                    </h1>
-                    <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-                        Desenvolvemos iniciativas que conectam tecnologia e pessoas, buscando soluções escaláveis para os desafios da inclusão.
-                    </p>
-                </div>
-            </section>
-
-            <div className="container mx-auto px-4 md:px-6 mt-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projects.map((project) => (
-                        <Card key={project.id} className="flex flex-col shadow-md hover:shadow-xl transition-shadow duration-300">
-                            <CardHeader>
-                                <div className="flex justify-between items-start mb-2">
-                                    <Badge variant="outline" className="text-primary border-primary/20">{project.category}</Badge>
-                                    <Badge className={project.status === "Edital Aberto" ? "bg-green-600" : "bg-slate-500"}>
-                                        {project.status}
-                                    </Badge>
-                                </div>
-                                <CardTitle className="text-2xl">{project.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="flex-grow">
-                                <p className="text-muted-foreground text-lg leading-relaxed">
-                                    {project.description}
-                                </p>
-                            </CardContent>
-                            <CardFooter className="pt-4 border-t bg-slate-50/50">
-                                <Button variant="ghost" className="w-full justify-between group hover:bg-transparent hover:text-primary px-0">
-                                    Ver detalhes do projeto
-                                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                </Button>
-                            </CardFooter>
-                        </Card>
+        <div className="flex flex-col bg-slate-100">
+            <PageHeader
+                title="Nossos Projetos"
+                description="Conheça as iniciativas que estão transformando a realidade da acessibilidade no Brasil."
+                variant="grid"
+            />
+            <div className="container py-12 md:py-24">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {projetos.map((projeto, index) => (
+                        <div key={index} className={`group relative flex flex-col space-y-4 rounded-xl border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${projeto.bg}`}>
+                            <div className="space-y-2">
+                                <h3 className={`font-bold text-xl ${projeto.iconColor}`}>{projeto.title}</h3>
+                                <p className="text-sm text-gray-600 leading-relaxed">{projeto.description}</p>
+                            </div>
+                            <div className="mt-auto pt-4 flex items-center justify-between border-t border-black/5">
+                                <span className={`text-xs font-bold px-3 py-1 rounded-full ${projeto.badge}`}>{projeto.status}</span>
+                                <Link href="#" className={`inline-flex items-center text-sm font-bold hover:underline ${projeto.iconColor}`}>
+                                    Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
         </div>
-    );
+    )
 }

@@ -3,6 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Calendar, ArrowLeft, Share2, User } from "lucide-react";
 import Link from "next/link";
 
+export async function generateStaticParams() {
+    // Generate params for mock news items
+    return [
+        { id: "1" },
+        { id: "2" },
+        { id: "3" }
+    ];
+}
+
 export default function NoticiaDetalhe({ params }: { params: { id: string } }) {
     // Mock data fetching based on ID
     const newsItem = {
@@ -23,8 +32,8 @@ export default function NoticiaDetalhe({ params }: { params: { id: string } }) {
     };
 
     return (
-        <div className="min-h-screen bg-background pb-20">
-            <div className="bg-slate-50 py-12 border-b">
+        <div className="min-h-screen bg-slate-100 pb-20">
+            <div className="bg-slate-100 py-12 border-b">
                 <div className="container mx-auto px-4 md:px-6">
                     <Button variant="ghost" className="mb-6 pl-0 hover:bg-transparent hover:text-primary" asChild>
                         <Link href="/noticias"><ArrowLeft className="mr-2 h-4 w-4" /> Voltar para notícias</Link>
@@ -53,7 +62,7 @@ export default function NoticiaDetalhe({ params }: { params: { id: string } }) {
                 </article>
 
                 <aside className="lg:col-span-4 space-y-8">
-                    <div className="bg-slate-50 p-6 rounded-xl border">
+                    <div className="bg-slate-100 p-6 rounded-xl border">
                         <h3 className="font-bold text-lg mb-4">Compartilhe</h3>
                         <div className="flex gap-2">
                             <Button variant="outline" className="w-full justify-start">

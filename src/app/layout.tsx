@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -45,6 +46,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
