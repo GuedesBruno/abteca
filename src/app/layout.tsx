@@ -10,16 +10,31 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "ABTECA - Associação Brasileira de Tecnologia Assistiva",
-  description: "Promovendo inclusão através da tecnologia e inovação.",
-  metadataBase: new URL("https://abteca.org.br"), // Placeholder
+  title: {
+    default: "ABTECA - Associação Brasileira de Tecnologia Assistiva",
+    template: "%s | ABTECA"
+  },
+  description: "Promovendo inclusão através da tecnologia e inovação. A ABTECA conecta profissionais, empresas e usuários para desenvolver soluções de tecnologia assistiva no Brasil.",
+  keywords: ["Tecnologia Assistiva", "Inclusão", "Acessibilidade", "ABTECA", "Deficiência", "Inovação Social", "Brasil"],
+  authors: [{ name: "ABTECA" }],
+  metadataBase: new URL("https://abteca.org.br"),
   openGraph: {
     title: "ABTECA - Inclusão e Tecnologia",
-    description: "Associação Brasileira de Tecnologia Assistiva",
+    description: "Associação Brasileira de Tecnologia Assistiva - Construindo um futuro mais acessível.",
+    url: "https://abteca.org.br",
     siteName: "ABTECA",
     locale: "pt_BR",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "ABTECA - Inclusão e Tecnologia",
+    description: "Conheça a Associação Brasileira de Tecnologia Assistiva.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  }
 };
 
 export default function RootLayout({
