@@ -77,7 +77,7 @@ export function ProjectsCarousel() {
                                 <CardFooter>
                                     <Button variant="link" className="p-0 h-auto text-primary font-semibold group" asChild>
                                         <Link
-                                            href={project.externalLink || `/projeto/${project.id}`}
+                                            href={project.externalLink || `/projeto-${project.id}`}
                                             target={project.externalLink ? "_blank" : undefined}
                                             rel={project.externalLink ? "noopener noreferrer" : undefined}
                                         >
