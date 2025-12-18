@@ -29,7 +29,7 @@ export default function Projetos() {
                             <div className="mt-auto pt-4 flex items-center justify-between border-t border-black/5">
                                 <span className={`text-xs font-bold px-3 py-1 rounded-full ${projeto.badgeStyle || "bg-slate-100 text-slate-700"}`}>{projeto.status}</span>
                                 <Link
-                                    href={projeto.externalLink || `/projetos/${projeto.id}`}
+                                    href={projeto.externalLink || `/projeto/${projeto.id}`}
                                     target={projeto.externalLink ? "_blank" : undefined}
                                     rel={projeto.externalLink ? "noopener noreferrer" : undefined}
                                     className={`inline-flex items-center text-sm font-bold hover:underline ${projeto.iconColor || "text-slate-900"}`}
