@@ -1,50 +1,13 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-
-const projects = [
-    {
-        id: 1,
-        title: "Programa Nacional de Formação",
-        description: "Capacitação em larga escala para profissionais de saúde e educação no uso de tecnologias assistivas.",
-        category: "Educação",
-        image: "/images/project-1.jpg", // Placeholder
-    },
-    {
-        id: 2,
-        title: "Observatório de Tecnologia Assistiva",
-        description: "Monitoramento e análise de dados sobre o ecossistema de TA no Brasil, gerando inteligência para políticas públicas.",
-        category: "Pesquisa",
-        image: "/images/project-2.jpg",
-    },
-    {
-        id: 3,
-        title: "Apoio a Políticas Públicas",
-        description: "Consultoria técnica para governos na elaboração de leis e diretrizes de acessibilidade.",
-        category: "Advocacy",
-        image: "/images/project-3.jpg",
-    },
-    {
-        id: 4,
-        title: "Incentivo à Inovação",
-        description: "Fomento a startups e grupos de pesquisa que desenvolvem novos dispositivos de inclusão.",
-        category: "Inovação",
-        image: "/images/project-4.jpg",
-    },
-    {
-        id: 5,
-        title: "Comunicação e Difusão",
-        description: "Disseminação de conhecimento técnico e conscientização da sociedade sobre direitos e recursos.",
-        category: "Comunicação",
-        image: "/images/project-5.jpg",
-    },
-];
+import { PROJECTS } from "@/data/projects";
 
 export function ProjectsCarousel() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -58,7 +21,7 @@ export function ProjectsCarousel() {
     }, [isInView, controls]);
 
     return (
-        <section className="py-20 bg-primary overflow-hidden" ref={containerRef}>
+        <section className="py-12 md:py-16 bg-primary overflow-hidden" ref={containerRef}>
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div className="space-y-4 max-w-2xl">
@@ -89,7 +52,7 @@ export function ProjectsCarousel() {
                         }
                     }}
                 >
-                    {projects.slice(0, 3).map((project) => (
+                    {PROJECTS.slice(0, 3).map((project) => (
                         <motion.div
                             key={project.id}
                             variants={{
@@ -100,7 +63,7 @@ export function ProjectsCarousel() {
                             <Card className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300 bg-white border-none">
                                 <CardHeader className="pb-4">
                                     <div className="flex justify-between items-start">
-                                        <Badge variant="secondary" className="mb-2 bg-blue-100 text-primary hover:bg-blue-200">
+                                        <Badge variant="secondary" className={`mb-2 ${project.badgeStyle || "bg-blue-100 text-primary hover:bg-blue-200"}`}>
                                             {project.category}
                                         </Badge>
                                     </div>
@@ -113,8 +76,12 @@ export function ProjectsCarousel() {
                                 </CardContent>
                                 <CardFooter>
                                     <Button variant="link" className="p-0 h-auto text-primary font-semibold group" asChild>
-                                        <Link href={`/projetos/${project.id}`}>
-                                            Saiba mais <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                                        <Link
+                                            href={project.externalLink || `/projetos/${project.id}`}
+                                            target={project.externalLink ? "_blank" : undefined}
+                                            rel={project.externalLink ? "noopener noreferrer" : undefined}
+                                        >
+                                            {project.externalLink ? "Aceder Observatório" : "Saiba mais"} <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
                                         </Link>
                                     </Button>
                                 </CardFooter>

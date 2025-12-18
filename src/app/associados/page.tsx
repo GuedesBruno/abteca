@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, Package } from "lucide-react"
 import { Metadata } from 'next'
 import { Button } from "@/components/ui/button"
 
@@ -26,7 +26,7 @@ export default function Associados() {
                 description="Faça parte dessa rede que transforma vidas. Junte-se a nós e fortaleça o ecossistema de Tecnologia Assistiva no Brasil."
                 variant="grid"
             />
-            <div className="container py-12 md:py-24">
+            <div className="container py-6 md:py-12">
                 <div className="grid gap-8 md:grid-cols-2 lg:gap-12 items-start">
                     <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
                         <h2 className="text-2xl font-bold mb-4">Por que se associar?</h2>
@@ -45,21 +45,38 @@ export default function Associados() {
                         </div>
                     </div>
 
-                    <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
-                        <h2 className="text-2xl font-bold mb-4">Categorias</h2>
-                        <div className="space-y-4">
-                            <div className="space-y-1">
-                                <h3 className="font-semibold">Pessoa Física</h3>
-                                <p className="text-sm text-muted-foreground">Profissionais, pesquisadores e estudantes.</p>
+                    <div className="space-y-6">
+                        <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+                            <h2 className="text-2xl font-bold mb-4">Categorias</h2>
+                            <div className="space-y-4">
+                                <div className="space-y-1">
+                                    <h3 className="font-semibold">Pessoa Física</h3>
+                                    <p className="text-sm text-muted-foreground">Profissionais, pesquisadores e estudantes.</p>
+                                </div>
+                                <div className="space-y-1">
+                                    <h3 className="font-semibold">Pessoa Jurídica</h3>
+                                    <p className="text-sm text-muted-foreground">Empresas, startups e instituições de ensino.</p>
+                                </div>
+                                <div className="space-y-1">
+                                    <h3 className="font-semibold">Institucional</h3>
+                                    <p className="text-sm text-muted-foreground">Órgãos públicos e ONGs parceiras.</p>
+                                </div>
                             </div>
-                            <div className="space-y-1">
-                                <h3 className="font-semibold">Pessoa Jurídica</h3>
-                                <p className="text-sm text-muted-foreground">Empresas, startups e instituições de ensino.</p>
-                            </div>
-                            <div className="space-y-1">
-                                <h3 className="font-semibold">Institucional</h3>
-                                <p className="text-sm text-muted-foreground">Órgãos públicos e ONGs parceiras.</p>
-                            </div>
+                        </div>
+
+                        <div className="rounded-lg border bg-blue-50 text-blue-900 shadow-sm p-6 border-blue-200">
+                            <h2 className="text-xl font-bold mb-3 flex items-center gap-2">
+                                <Package className="h-5 w-5" />
+                                Cadastre seus Produtos
+                            </h2>
+                            <p className="text-sm text-blue-800 mb-4 leading-relaxed">
+                                Você desenvolve ou comercializa Tecnologia Assistiva? Cadastre seus produtos no Observatório no portal da ALAT e ganhe visibilidade.
+                            </p>
+                            <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white border-0">
+                                <Link href="https://alat.net.br/contact" target="_blank" rel="noopener noreferrer">
+                                    Solicitar Acesso
+                                </Link>
+                            </Button>
                         </div>
                     </div>
                 </div>

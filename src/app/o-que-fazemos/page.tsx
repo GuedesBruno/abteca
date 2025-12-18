@@ -45,7 +45,7 @@ export default function OQueFazemos() {
                 description="Conheça nossos eixos de atuação: Educação, Pesquisa e Políticas Públicas."
                 variant="circles"
             />
-            <div className="container py-12 md:py-24">
+            <div className="container py-6 md:py-12">
                 <div className="grid gap-8 md:grid-cols-2">
                     {eixos.map((eixo, index) => (
                         <Card key={index} className={`border-t-4 ${eixo.border} hover:shadow-xl transition-all duration-300 group`}>

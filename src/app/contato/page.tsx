@@ -17,7 +17,7 @@ export default function ContatoPage() {
                 title="Fale Conosco"
                 description="Entre em contato conosco para dúvidas, sugestões ou parcerias."
             />
-            <div className="container py-12 md:py-24">
+            <div className="container py-6 md:py-12">
                 <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
                     <div className="space-y-8">
                         <Card className="border-t-4 border-t-primary shadow-md">

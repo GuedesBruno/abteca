@@ -29,7 +29,7 @@ const news = [
 
 export function LatestNews() {
     return (
-        <section className="py-20 bg-slate-100">
+        <section className="py-12 md:py-16 bg-slate-100">
             <div className="container mx-auto px-4 md:px-6">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-12 text-center">Últimas Notícias</h2>
 

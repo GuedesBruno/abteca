@@ -18,7 +18,7 @@ export default function QuemSomos() {
                 variant="dots"
             />
 
-            <div className="container py-12 md:py-24">
+            <div className="container py-6 md:py-12">
                 <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
                     <div className="space-y-4">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Nossa História</h2>

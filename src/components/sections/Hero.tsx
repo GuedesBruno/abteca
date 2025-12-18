@@ -8,7 +8,7 @@ export function Hero() {
     return (
         <section className="relative w-full bg-blue-gradient overflow-hidden">
             <InteractiveBackground />
-            <div className="container mx-auto px-4 md:px-6 py-20 md:py-32 lg:py-40 flex flex-col md:flex-row items-center gap-12">
+            <div className="container mx-auto px-4 md:px-6 py-8 md:py-12 lg:py-16 flex flex-col md:flex-row items-center gap-12">
                 <div className="flex-1 space-y-8 z-10">
                     <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-white bg-white/10 text-white hover:bg-white/20">
                         Tecnologia Social

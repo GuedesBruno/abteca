@@ -24,7 +24,7 @@ const highlights = [
 
 export function Highlights() {
     return (
-        <section className="py-20 bg-slate-100">
+        <section className="py-12 md:py-16 bg-slate-100">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid md:grid-cols-3 gap-8">
                     {highlights.map((item) => (

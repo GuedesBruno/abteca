@@ -4,7 +4,7 @@ import { UserPlus } from "lucide-react";
 
 export function CallToAction() {
     return (
-        <section className="py-24 bg-primary relative overflow-hidden">
+        <section className="py-16 md:py-20 bg-primary relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('/bg-pattern.svg')] opacity-10" />
             <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
                 <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-6">

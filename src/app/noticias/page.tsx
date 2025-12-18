@@ -40,7 +40,7 @@ export default function Noticias() {
                 description="Fique por dentro das últimas novidades e eventos da ABTECA."
                 variant="waves"
             />
-            <div className="container py-12 md:py-24">
+            <div className="container py-6 md:py-12">
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {NEWS_ITEMS.map((item) => (
                         <Card key={item.id} className="flex flex-col border-0 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
