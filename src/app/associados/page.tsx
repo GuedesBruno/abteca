@@ -70,7 +70,7 @@ export default function Associados() {
                                 Cadastre seus Produtos
                             </h2>
                             <p className="text-sm text-blue-800 mb-4 leading-relaxed">
-                                Você desenvolve ou comercializa Tecnologia Assistiva? Cadastre seus produtos no Observatório no portal da ALAT e ganhe visibilidade.
+                                Você desenvolve, comercializa ou trabalha com Tecnologia Assistiva? Cadastre seus produtos no Observatório no portal da ALAT e ganhe visibilidade.
                             </p>
                             <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white border-0">
                                 <Link href="https://alat.net.br/contact" target="_blank" rel="noopener noreferrer">

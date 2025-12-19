@@ -14,7 +14,7 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
     {
-        id: "1",
+        id: "programa-nacional-formacao",
         title: "Programa Nacional de Formação",
         description: "Capacitação em larga escala para profissionais de saúde e educação no uso de tecnologias assistivas.",
         fullDescription: `
@@ -35,20 +35,19 @@ export const PROJECTS: Project[] = [
         badgeStyle: "bg-blue-100 text-blue-700"
     },
     {
-        id: "2",
+        id: "observatorio-tecnologia-assistiva",
         title: "Observatório de Tecnologia Assistiva",
         description: "Monitoramento e análise de dados sobre o ecossistema de TA no Brasil através do banco de dados ALAT.net.br.",
         fullDescription: "O Observatório de Tecnologia Assistiva é uma plataforma de inteligência que monitora o desenvolvimento, a produção e a distribuição de TA no Brasil.",
         category: "Pesquisa",
         image: "/images/project-2.jpg",
         status: "Em andamento",
-        externalLink: "https://alat.net.br",
         bgStyle: "bg-blue-50 border-blue-200",
         iconColor: "text-blue-600",
         badgeStyle: "bg-blue-100 text-blue-700"
     },
     {
-        id: "3",
+        id: "lab-inovacao-aberta",
         title: "Lab de Inovação Aberta",
         description: "Espaço co-criativo para desenvolvimento de protótipos de baixo custo.",
         fullDescription: `
