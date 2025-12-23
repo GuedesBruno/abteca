@@ -30,16 +30,6 @@ export function Footer() {
                                     Para Associados
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/transparencia" className="hover:text-secondary transition-colors">
-                                    Transparência
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/privacidade" className="hover:text-secondary transition-colors">
-                                    Política de Privacidade
-                                </Link>
-                            </li>
                         </ul>
                     </div>
 
