@@ -41,7 +41,7 @@ export default function Noticias() {
                             </CardContent>
                             <CardFooter className="mt-auto pt-4">
                                 <Button variant="ghost" asChild className="w-full justify-between group-hover:bg-primary/5">
-                                    <a href={`/noticias/${item.id}`}>
+                                    <a href={`/noticias/${item.id}/`}>
                                         Ler mais
                                         <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </a>
