@@ -76,13 +76,13 @@ export function ProjectsCarousel() {
                                 </CardContent>
                                 <CardFooter>
                                     <Button variant="link" className="p-0 h-auto text-primary font-semibold group" asChild>
-                                        <Link
-                                            href={project.externalLink || `/projeto-${project.id}`}
+                                        <a
+                                            href={project.externalLink || `/projetos/${project.id}/`}
                                             target={project.externalLink ? "_blank" : undefined}
                                             rel={project.externalLink ? "noopener noreferrer" : undefined}
                                         >
-                                            {project.externalLink ? "Aceder Observatório" : "Saiba mais"} <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
-                                        </Link>
+                                            {project.externalLink ? "Acesso externo" : "Saiba mais"} <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                                        </a>
                                     </Button>
                                 </CardFooter>
                             </Card>
