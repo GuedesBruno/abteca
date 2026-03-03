@@ -2,34 +2,21 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowLeft, Share2, User } from "lucide-react";
 import Link from "next/link";
+import { NEWS_ITEMS } from "@/lib/data/news";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-    // Generate params for mock news items
-    return [
-        { id: "1" },
-        { id: "2" },
-        { id: "3" }
-    ];
+    return NEWS_ITEMS.map((item) => ({
+        id: item.id,
+    }));
 }
 
 export default function NoticiaDetalhe({ params }: { params: { id: string } }) {
-    // Mock data fetching based on ID
-    const newsItem = {
-        id: params.id,
-        title: "ABTECA participa de Fórum Internacional de Acessibilidade",
-        date: "12 Dez, 2024",
-        author: "Assessoria de Imprensa",
-        category: "Eventos",
-        content: `
-        <p>A Associação Brasileira de Tecnologia Assistiva (ABTECA) marcou presença nesta semana no Fórum Internacional de Acessibilidade, realizado em Lisboa. O evento reuniu especialistas de mais de 30 países para discutir o futuro da inclusão tecnológica.</p>
-        <br/>
-        <p>Durante o painel sobre "Políticas Públicas para o Sul Global", a presidente da ABTECA apresentou os resultados do Programa Nacional de Formação, que já capacitou milhares de profissionais no Brasil. "O compartilhar de experiências é fundamental para acelerarmos a adoção de tecnologias que de fato mudam a vida das pessoas", afirmou.</p>
-        <br/>
-        <p>Entre os destaques do evento, foram apresentadas novas tecnologias de interface cérebro-máquina e avanços significativos em leitores de tela baseados em inteligência artificial. A ABTECA firmou compromisso de trazer dois workshops internacionais para o Brasil no próximo ano, focados nessas inovações.</p>
-        <br/>
-        <p>A participação da associação reforça o compromisso do Brasil em estar alinhado com as melhores práticas globais de acessibilidade e desenho universal.</p>
-     `
-    };
+    const newsItem = NEWS_ITEMS.find((item) => item.id === params.id);
+
+    if (!newsItem) {
+        notFound();
+    }
 
     return (
         <div className="min-h-screen bg-slate-100 pb-20">

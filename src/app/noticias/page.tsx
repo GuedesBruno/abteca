@@ -10,27 +10,7 @@ export const metadata: Metadata = {
     description: 'Fique por dentro das últimas novidades e eventos da ABTECA.',
 }
 
-// Mock data for static build
-const NEWS_ITEMS = [
-    {
-        id: "1",
-        title: "ABTECA participa de Fórum Internacional",
-        excerpt: "Representantes da associação estiveram em Lisboa para discutir acessibilidade global.",
-        date: "12 Dez, 2024"
-    },
-    {
-        id: "2",
-        title: "Lançamento do Edital de Inovação",
-        excerpt: "Novos recursos para startups de tecnologia assistiva serão disponibilizados em 2025.",
-        date: "10 Dez, 2024"
-    },
-    {
-        id: "3",
-        title: "Workshop de Impressão 3D e Próteses",
-        excerpt: "Evento prático capacitou 50 profissionais em novas técnicas de modelagem.",
-        date: "05 Dez, 2024"
-    }
-];
+import { NEWS_ITEMS } from "@/lib/data/news";
 
 export default function Noticias() {
     return (

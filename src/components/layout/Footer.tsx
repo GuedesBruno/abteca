@@ -9,7 +9,7 @@ export function Footer() {
                     {/* Logo & About */}
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center space-x-2">
-                            <img src="/logo-abteca.png" alt="ABTECA Logo" className="h-16 w-auto" />
+                            <img src="/logo-abteca.png" alt="ABTECA Logo" width={151} height={64} className="h-16 w-auto" />
                         </Link>
                         <p className="text-sm text-slate-600 leading-relaxed">
                             Associação Brasileira de Tecnologia Assistiva. Promovendo a inclusão social através da inovação, pesquisa e desenvolvimento de soluções acessíveis.

@@ -28,7 +28,7 @@ export function Header() {
             <div className="container mx-auto px-4 md:px-6 h-24 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center space-x-2">
-                    <img src="/logo-abteca.png" alt="ABTECA Logo" className="h-20 w-auto" />
+                    <img src="/logo-abteca.png" alt="ABTECA Logo" width={189} height={80} className="h-20 w-auto" />
                     {/* <span className="font-bold text-xl md:text-2xl text-primary tracking-tight">
                         ABTECA
                     </span> */}
@@ -40,6 +40,7 @@ export function Header() {
                         <Link
                             key={item.href}
                             href={item.href}
+                            prefetch={false}
                             className={cn(
                                 "transition-colors hover:text-primary",
                                 pathname === item.href ? "text-primary font-bold" : "text-foreground/80"
@@ -75,7 +76,7 @@ export function Header() {
                                 className="flex items-center"
                                 onClick={() => setIsOpen(false)}
                             >
-                                <img src="/logo-abteca.png" alt="ABTECA Logo" className="h-14 w-auto mr-2" />
+                                <img src="/logo-abteca.png" alt="ABTECA Logo" width={133} height={56} className="h-14 w-auto mr-2" />
                                 {/* <div className="bg-primary w-8 h-8 rounded-md flex items-center justify-center text-white font-bold text-lg mr-2">
                                     A
                                 </div>
@@ -87,6 +88,7 @@ export function Header() {
                                 <Link
                                     key={item.href}
                                     href={item.href}
+                                    prefetch={false}
                                     onClick={() => setIsOpen(false)}
                                     className={cn(
                                         "block px-2 py-1 text-lg font-semibold transition-colors hover:text-primary",
